@@ -1,3 +1,21 @@
+# what changed after fork
+
+added exponential backoff and simplified api. See and run example.
+
+```go
+err := try.Do(func(attempt int) (err error) {
+	err = someFx()
+	if err != nil {
+		log.Printf("main() failed %d times on someFx() with err: %v", attempt, err)
+		return err
+	}
+	return nil
+})
+if err != nil {
+	log.Panicf("main() failed with err: %v", err)
+}
+```
+
 # try [![GoDoc](https://godoc.org/github.com/matryer/try?status.svg)](https://godoc.org/github.com/matryer/try) [![Go Report Card](https://goreportcard.com/badge/github.com/matryer/try)](https://goreportcard.com/report/github.com/matryer/try)
 
 Idiomatic Go retry package. Thanks to [@rowland](https://github.com/rowland) for code review.

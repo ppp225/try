@@ -1,9 +1,9 @@
 // Package try provides retry functionality.
 //     var value string
-//     err := try.Do(func(attempt int) (bool, error) {
+//     err := try.Do(func(attempt int) (error) {
 //       var err error
 //       value, err = SomeFunction()
-//       return attempt < 5, err // try 5 times
+//       return err
 //     })
 //     if err != nil {
 //       log.Fatalln("error:", err)
